@@ -1,0 +1,25 @@
+RewriteEngine On
+RewriteBase /
+
+AddType video/ogg .ogv 
+AddType video/ogg .ogg 
+AddType video/webm .webm
+
+Options -Indexes
+
+AddType font/ttf .ttf
+AddType font/eot .eot
+AddType font/otf .otf
+AddType font/woff .woff
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /lawcast
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /lawcast/index.php [L]
+</IfModule>
+
+# END WordPress
